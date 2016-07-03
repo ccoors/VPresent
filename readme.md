@@ -24,11 +24,17 @@ VPresent has no special requirements for the webserver it runs on.
 
 ## Usage
 Using this tool requires some preparation. So given you took about 1000 photos (of which at least some contain GPS information) with a more or less modern camera, they are quite big in resolution and file size. For uploading them to the internet we have to resize them and create thumbnails. By default the images are resized to a resolution of a maximum of 2000 x 2000 (preserving aspect ratio). If you want to change that, have a look at `resize_images.sh`. There you can also adjust the quality of the output images (defaults to 70, which may be a bit low) and the size of the thumbnails (which have a default height of 120 unless they become wider than 500 pixels). So, place your images (in a file format `imagemagick` understands, such as `jpg`) in the `sourceimages` directory. Then open a shell in the `tools` directory and run this command:
+
     ./resize_images.sh
+
 This will read the images from the `sourceimages` directory, resize and auto-rotate them and place them in the `output` directory as the 'big' JPG images and as thumbnails and remove EXIF information from the thumbnails, which saves a lot of space. You can manually try to decrease the size of the thumbnails with a tool like `jpegoptim` if you want to, but that isn't usually effective. After all the images have been resized (which can take a while) you have to use the Python script to extract the GPS information from the photos. It prints out a large JSON file, which you should write to a file in the `output` directory:
+
     ./process_images.py > ../output/images.json
+
 Now you should have 2 directories named `images` and `thumbnails` in your `output` directory, as well as a file called `images.json`. You can now place the `output` directory on a webserver. As the VPresent uses AJAX to retrieve the JSON, you usually can not test it locally. But you can use Python to serve the images temporarily. Open a shell in the `output` directory or use `cd ../output` in the shell you used to process the images and run this command:
+
     python3 -m http.server 9010
+
 You can now navigate your web browser to <http://localhost:9010> and see VPresent in action.
 
 ## Customizing
