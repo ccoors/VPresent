@@ -1,0 +1,27 @@
+.tabs-content, .tabs-panel {
+	margin: 0px;
+}
+
+.tabs-content {
+	padding: 0px;
+}
+
+.tabs-title a {
+	font-weight: bold;
+	font-size: 12pt;
+	padding: 1.25rem 1.25rem;
+	color: #444444;
+}
+
+#map, #thumbnailContainer, #list {
+	min-height: 300px;
+}
+
+#thumbnailContainer {
+	text-align: center;
+}
+
+#thumbnailContainer a img {
+	margin: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
