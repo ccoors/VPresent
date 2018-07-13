@@ -1,7 +1,7 @@
 # VPresent
 
 ## Demo
-Here is a demo with a few photos of my hometown, Bremen in Germany: <http://cuervo.phoenix.uberspace.de/vpresent_demo/>
+Here is a demo with a few photos of my hometown, Bremen in Germany: <https://www.ccoors.de/vpresent_demo/>
 
 ## Introduction
 This is a tool for presenting photos with GPS EXIF information.
